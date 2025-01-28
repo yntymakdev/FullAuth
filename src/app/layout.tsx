@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "@/shared/styles/globals.css";
 import { MainProvider } from "@/shared/provider";
+import { ToggleTheme } from "@/shared/components/ui";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,9 +29,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body>
         <MainProvider>
           <div className="relative flex min-h screen flex-col">
+            <ToggleTheme />
             <div className="flex h-screen w-full items-center justify-center px-4">{children}</div>
           </div>
         </MainProvider>

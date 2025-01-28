@@ -1,11 +1,17 @@
 "use client";
 
 import * as React from "react";
-import { Moon, MoonIcon, Sun } from "lucide-react";
+import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Button } from "./Button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@radix-ui/react-dropdown-menu";
 
-export function ModeToggle() {
+export function ToggleTheme() {
   const { setTheme } = useTheme();
 
   return (
@@ -18,9 +24,8 @@ export function ModeToggle() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => setTheme("яркая")}>Light</DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("темная")}>Dark</DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("стандартная")}>System</DropdownMenuItem>
+        <DropdownMenuItem onClick={() => setTheme("light")}>Яркая</DropdownMenuItem>
+        <DropdownMenuItem onClick={() => setTheme("dark")}>Темная</DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );
