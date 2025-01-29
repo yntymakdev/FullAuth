@@ -7,12 +7,19 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/shared/components/ui";
 import { Input } from "@/shared/components/ui"; 
 import { Button } from "@/shared/components/ui";
+import { useTheme } from "next-themes";
+import { useState } from "react";
+import { toast } from "sonner";
+import ReCAPTCHA from "react-google-recaptcha";
 
 
 
 
 
 export function LoginForm() {
+  
+const {theme} = useTheme()
+const [recapthcaValue,setRecapthcaValue] = useState<string | null>(null)
   const form = useForm<TypeRegisterSchema>({
     resolver: zodResolver(RegisterSchema),
     defaultValues: {
@@ -24,10 +31,16 @@ export function LoginForm() {
   });
 
   const onSubmit = (values: TypeRegisterSchema) => {
-    console.log(values);
+    if(recapthcaValue){
+      console.log(values);
+      } 
+       else{
+      toast.error('Пожалуйста завершите рекаптчу')
+      }
   };
 
   return (
+    
     <AuthWrapper
       heading="Войти"
       description="Чтобы войти на сайт, введите ваш email и пароль"
@@ -62,6 +75,11 @@ export function LoginForm() {
               <FormMessage/>
             </FormItem>
           )} />
+          
+<div className="flex justify-center">
+<ReCAPTCHA sitekey  ={process.env.GOOGLE_RECAPTCHA_SITE_KEY as string} onChange={setRecapthcaValue} theme={theme === 'light' ? 'light': 'dark'} />
+
+</div>
 
 
           <Button type="submit">Войти аккаунт</Button>

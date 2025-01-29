@@ -9,6 +9,7 @@ import { Input } from "@/shared/components/ui";
 import { Button } from "@/shared/components/ui";
 import { useTheme } from "next-themes";
 import { useState } from "react";
+import { toast } from 'sonner';
 
 export function RegisterForm() {
 
@@ -30,8 +31,8 @@ if(recapthcaValue){
 console.log(values);
 } 
  else{
-console.log('RECAPTCHA ERROR');
- }
+toast.error('Пожалуйста завершите рекаптчу')
+}
   };
 
   return (
