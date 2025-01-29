@@ -8,6 +8,10 @@ import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/shar
 import { Input } from "@/shared/components/ui"; 
 import { Button } from "@/shared/components/ui";
 
+
+
+
+
 export function RegisterForm() {
   const form = useForm<TypeRegisterSchema>({
     resolver: zodResolver(RegisterSchema),
@@ -25,10 +29,10 @@ export function RegisterForm() {
 
   return (
     <AuthWrapper
-      heading="Регистрация"
+      heading="Войти"
       description="Чтобы войти на сайт, введите ваш email и пароль"
-      backButtonLabel="Уже есть аккаунт? Войти"
-      backButtonHref="/auth/login"
+      backButtonLabel="Нет аккаунта ? Регистрация"
+      backButtonHref="/auth/register"
       isShowSocial
     >
       <FormProvider {...form}>
@@ -59,17 +63,8 @@ export function RegisterForm() {
             </FormItem>
           )} />
 
-          <FormField control={form.control} name="passwordRepeat" render={({ field }) => (
-            <FormItem>
-              <FormLabel>Repeat Password</FormLabel>
-              <FormControl><Input type="password" placeholder="repeat password" {...field} /></FormControl>
-              <FormMessage/>
 
-            </FormItem>
-          )} />
-
-          {/* Кнопка отправки формы */}
-          <Button type="submit">Создать аккаунт</Button>
+          <Button type="submit">Войти аккаунт</Button>
         </form>
       </FormProvider>
     </AuthWrapper>
