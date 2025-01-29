@@ -12,7 +12,7 @@ import { Button } from "@/shared/components/ui";
 
 
 
-export function RegisterForm() {
+export function LoginForm() {
   const form = useForm<TypeRegisterSchema>({
     resolver: zodResolver(RegisterSchema),
     defaultValues: {

@@ -1,7 +1,7 @@
 import { Button, Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/shared/components/ui";
-import { Link } from "lucide-react";
 import React, { type PropsWithChildren } from "react";
 import { AuthSocial } from "./AuthSocial";
+import Link from "next/link";
 interface AuthWrapperProps {
   heading: string;
   description?: string;
