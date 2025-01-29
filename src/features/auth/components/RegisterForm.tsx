@@ -75,7 +75,7 @@ const [recapthcaValue,setRecapthcaValue] = useState<string | null>(null)
           )} />
 
 <div className="flex justify-center">
-<ReCAPTCHA sitekey  ={process.env.GOOGLE_RECAPTCHA_SITE_KEY as string} onChange={setRecapthcaValue} theme={theme === 'light'? ' light': 'dark'} />
+<ReCAPTCHA sitekey  ={process.env.GOOGLE_RECAPTCHA_SITE_KEY as string} onChange={setRecapthcaValue} theme={theme === 'light' ? 'light': 'dark'} />
 
 </div>
           <Button type="submit">Создать аккаунт</Button>
