@@ -26,7 +26,12 @@ const [recapthcaValue,setRecapthcaValue] = useState<string | null>(null)
   });
 
   const onSubmit = (values: TypeRegisterSchema) => {
-    console.log(values);
+if(recapthcaValue){
+console.log(values);
+} 
+ else{
+console.log('RECAPTCHA ERROR');
+ }
   };
 
   return (
