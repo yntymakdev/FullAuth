@@ -1,6 +1,7 @@
 import { Button, Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/shared/components/ui";
 import { Link } from "lucide-react";
 import React, { type PropsWithChildren } from "react";
+import { AuthSocial } from "./AuthSocial";
 interface AuthWrapperProps {
   heading: string;
   description?: string;
@@ -24,7 +25,7 @@ export default function ({
       </CardHeader>
 
       <CardContent>
-        {isShowSocial && <div>Social</div>}
+        {isShowSocial && <AuthSocial />}
         {children}
       </CardContent>
 
