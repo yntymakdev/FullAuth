@@ -7,8 +7,14 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/shared/components/ui";
 import { Input } from "@/shared/components/ui"; 
 import { Button } from "@/shared/components/ui";
+import { useTheme } from "next-themes";
+import { useState } from "react";
 
 export function RegisterForm() {
+
+const {theme} = useTheme()
+const [recapthcaValue,setRecapthcaValue] = useState<string | null>(null)
+
   const form = useForm<TypeRegisterSchema>({
     resolver: zodResolver(RegisterSchema),
     defaultValues: {
@@ -68,7 +74,10 @@ export function RegisterForm() {
             </FormItem>
           )} />
 
-          {/* Кнопка отправки формы */}
+<div className="flex justify-center">
+<ReCAPTCHA sitekey  = />
+
+</div>
           <Button type="submit">Создать аккаунт</Button>
         </form>
       </FormProvider>
